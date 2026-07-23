@@ -21,11 +21,6 @@ export class CreateTask {
   }
 
   onSubmit(){
-    this.taskService.createTask(this.taskForm.value).subscribe((data)=>{
-      console.log(data);
-    });
-    this.taskService.getAllTask().subscribe((data)=>{
-      console.log(data);
-    })
+    this.taskService.createTask(this.taskForm.value);
   }
 }

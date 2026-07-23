@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../services/task-service';
-import { task } from '../../model/taskModel';
 import { CommonModule } from '@angular/common';
 
 
@@ -11,30 +10,23 @@ import { CommonModule } from '@angular/common';
   styleUrl: './task.scss',
 })
 export class Task {
-  taskList:task[] = [];
-  constructor(private taskService: TaskService,
+  constructor(public taskService: TaskService,
   ) {
-    
   }
   ngOnInit(){
     this.getAllTask();
   }
 
   getAllTask(){
-    this.taskService.getAllTask().subscribe((data:any)=>{
-      this.taskList = data;
-    });
+    this.taskService.getAllTask();
+
   }
 
   updateTaskStatus(id:number, isCompleted:boolean){
-    this.taskService.updateStatus(id, isCompleted).subscribe((data)=>{
-      this.getAllTask();
-    });
+    this.taskService.updateStatus(id, isCompleted);
   }
 
   deleteTask(id: number){
-    this.taskService.deleteTask(id).subscribe((data)=>{
-      this.getAllTask();
-    });
+    this.taskService.deleteTask(id);
   }
 }
