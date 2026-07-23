@@ -1,0 +1,18 @@
+<div class="create-task">
+    <form class="form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+            <label for="title" class="label">Title </label>
+            <input type="text" id="title" class="input" formControlName="title">
+        </div>
+
+        <div class="input-field">
+            <label for="description" class="label">Description </label>
+            <!-- <input type="textarea" id="description" class="input"> -->
+             <textarea name="" id="description" class="input" formControlName="description"></textarea>
+        </div>
+
+        <div class="input-field">
+            <button class="submit-btn">Create</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.id {
+  width: 5%;
+}
+
+.title {
+  width: 20%;
+}
+
+.description {
+  width: 25%;
+}
+
+.status {
+  width: 5%;
+}
+
+.created-date {
+  width: 5%;
+}
+
+.action {
+  width: 25%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  word-wrap: break-word;
+}

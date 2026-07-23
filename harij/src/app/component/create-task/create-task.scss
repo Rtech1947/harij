@@ -1,0 +1,31 @@
+.form{
+    // display: flex;
+    .label{
+        font-size: 25px;
+        display: block;
+        padding-left: 10px;
+    }
+    .input-field{
+        margin: 2px;
+        .input{
+            margin: 10px;
+            width: 80%;
+        }
+        input{
+            height: 30px;
+        }
+        textarea{
+            height: 50px;
+            width: 80%;
+        }
+        .submit-btn{
+            height: 40px;
+            width: 150px;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 700;
+            background-color: orange;
+            margin-left: 10px;
+        }
+    }
+}
