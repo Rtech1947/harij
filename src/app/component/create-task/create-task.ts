@@ -20,7 +20,16 @@ export class CreateTask {
     })
   }
 
-  onSubmit(){
-    this.taskService.createTask(this.taskForm.value);
+  onSubmit() {
+  this.taskService.createTask(this.taskForm.value).subscribe({
+    next: (data) => {
+      console.log('Task Created', data);
+
+      this.taskForm.reset();
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
   }
 }
