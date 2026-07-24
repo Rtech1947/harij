@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 
@@ -10,7 +10,6 @@ import { TaskService } from '../../services/task.service';
   styleUrl: './create-task.component.scss'
 })
 export class CreateTaskComponent {
-   @Output() taskCreated = new EventEmitter<void>();
   taskForm : FormGroup;
   constructor(private fb: FormBuilder,
     private taskService: TaskService
@@ -22,15 +21,7 @@ export class CreateTaskComponent {
   }
 
   onSubmit() {
-    this.taskService.createTask(this.taskForm.value).subscribe({
-      next: (data) => {
-        console.log('Task Created', data);
-        this.taskCreated.emit()
-        this.taskForm.reset();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.taskService.createTask(this.taskForm.value)
+    this.taskForm.reset();
   }
 }

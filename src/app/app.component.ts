@@ -1,21 +1,20 @@
-import { Component, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
 import { TaskComponent } from './component/task/task.component';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ CreateTaskComponent, TaskComponent],
+  imports: [ CreateTaskComponent, TaskComponent, DashboardComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-   @ViewChild(TaskComponent)
-  taskComponent!: TaskComponent;
   title = 'harij';
-
-  taskCreated(){
-    this.taskComponent.getAllTask();
+  option = 1;
+  updateView(num:number){
+    this.option = num;
   }
 }

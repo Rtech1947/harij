@@ -1,6 +1,16 @@
 <div class="container">
     <div class="create-task">
-        <app-create-task (taskCreated) = taskCreated()></app-create-task>
+        <div class="menu">
+            <button class="btn" (click)="updateView(1)"  [ngClass]="{ 'active-btn': option === 1 }">DashBoard</button>
+            <button class="btn" (click)="updateView(2)" [ngClass]="{ 'active-btn': option === 2 }">Create Task</button>
+        </div>
+        <div class="comp">
+            @if(option == 1){
+                <app-dashboard></app-dashboard>
+            }@else{
+                <app-create-task></app-create-task>
+            }
+        </div>
     </div>
     <div class="list-task">
         <app-task></app-task>

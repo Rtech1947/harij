@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 import { task } from '../model/taskModel';
 
 @Injectable({
@@ -8,27 +7,32 @@ import { task } from '../model/taskModel';
 })
 export class TaskService {
   URL = 'https://springboot-demo-production-fac4.up.railway.app/tasks';
-
+  taskList = signal<task[]>([]);
   constructor(private http: HttpClient) {}
 
-  getAllTask(): Observable<task[]> {
-    return this.http.get<task[]>(this.URL);
-  }
-
-  createTask(data: any): Observable<task> {
-    return this.http.post<task>(this.URL, data);
-  }
-
-  updateStatus(id: number, completed: boolean): Observable<task> {
-    return this.http.put<task>(
-      `${this.URL}/${id}?completed=${completed}`,
-      {}
-    );
-  }
-
-  deleteTask(id: number): Observable<string> {
-    return this.http.delete(`${this.URL}/${id}`, {
-      responseType: 'text'
+  getAllTask(){
+    this.http.get<task[]>(this.URL).subscribe((data)=>{
+      this.taskList.set(data);
     });
+  }
+
+  createTask(data: any) {
+    this.http.post<task[]>(this.URL, data).subscribe((data)=>{
+      this.taskList.set(data);
+    });
+  }
+
+  updateStatus(id: number, completed: boolean) {
+    this.http.put<task[]>(`${this.URL}/${id}?completed=${completed}`,
+      {}
+    ).subscribe((data)=>{
+      this.taskList.set(data);
+    })
+  }
+
+  deleteTask(id: number){
+     this.http.delete<task[]>(`${this.URL}/${id}`).subscribe((data)=>{
+      this.taskList.set(data);
+     });
   }
 }

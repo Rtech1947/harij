@@ -13,42 +13,21 @@ import { CommonModule } from '@angular/common';
 export class TaskComponent {
   taskList: task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(public taskService: TaskService) {}
 
   ngOnInit() {
     this.getAllTask();
   }
 
   getAllTask() {
-    this.taskService.getAllTask().subscribe({
-      next: (data) => {
-        this.taskList = data;
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.taskService.getAllTask();
   }
 
   updateTaskStatus(id: number, completed: boolean) {
-    this.taskService.updateStatus(id, completed).subscribe({
-      next: () => {
-        this.getAllTask();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.taskService.updateStatus(id, completed)
   }
 
   deleteTask(id: number) {
-    this.taskService.deleteTask(id).subscribe({
-      next: () => {
-        this.getAllTask();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.taskService.deleteTask(id);
   }
 }

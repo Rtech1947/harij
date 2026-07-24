@@ -24,9 +24,12 @@
             border-radius: 5px;
             font-size: 15px;
             font-weight: 700;
-            background-color: orange;
+            background-color: skyblue;
             margin-left: 10px;
             cursor: pointer;
+        }
+        .submit-btn:hover{
+            background-color: orange;
         }
     }
 }
