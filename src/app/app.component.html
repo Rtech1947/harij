@@ -1,6 +1,6 @@
 <div class="container">
     <div class="create-task">
-        <app-create-task></app-create-task>
+        <app-create-task (taskCreated) = taskCreated()></app-create-task>
     </div>
     <div class="list-task">
         <app-task></app-task>
