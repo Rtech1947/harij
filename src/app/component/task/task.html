@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    @for (task of taskService.taskList; track task.id) {
+    @for (task of taskList; track task.id) {
       <tr>
         <td class="id">{{ task.id }}</td>
         <td class="title">{{ task.title }}</td>
@@ -23,7 +23,7 @@
           {{ task.createdDate | date:'dd/MM/yyyy' }}
         </td>
         <td class="action">
-          <button (click) ="updateTaskStatus(task.id,task.completed ? false : true)">{{task.completed ? 'Mark as Pending' : 'Mark as Completed'}}</button>
+          <button (click) ="updateTaskStatus(task.id,!task.completed)">{{task.completed ? 'Mark as Pending' : 'Mark as Completed'}}</button>
           <button (click)="deleteTask(task.id)">Delete</button>
         </td>
       </tr>
