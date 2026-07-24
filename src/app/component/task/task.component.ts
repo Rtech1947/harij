@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { TaskService } from '../../services/task-service';
-import { CommonModule } from '@angular/common';
+import { TaskService } from '../../services/task.service';
 import { task } from '../../model/taskModel';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
+  standalone: true,
   imports: [CommonModule],
-  templateUrl: './task.html',
-  styleUrl: './task.scss',
+  templateUrl: './task.component.html',
+  styleUrl: './task.component.scss'
 })
-export class Task {
+export class TaskComponent {
   taskList: task[] = [];
 
   constructor(private taskService: TaskService) {}

@@ -23,8 +23,8 @@
           {{ task.createdDate | date:'dd/MM/yyyy' }}
         </td>
         <td class="action">
-          <button (click) ="updateTaskStatus(task.id,!task.completed)">{{task.completed ? 'Mark as Pending' : 'Mark as Completed'}}</button>
-          <button (click)="deleteTask(task.id)">Delete</button>
+          <button class="btn" (click) ="updateTaskStatus(task.id,!task.completed)">{{task.completed ? 'Mark as Pending' : 'Mark as Completed'}}</button>
+          <button class="btn" (click)="deleteTask(task.id)">Delete</button>
         </td>
       </tr>
     }
