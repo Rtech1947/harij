@@ -2,10 +2,20 @@ table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+}
+
+thead{
+  background: #2c3e50;
+  color: white
 }
 
 .id {
   width: 5%;
+  text-align: center;
 }
 
 .title {
@@ -13,27 +23,74 @@ table {
 }
 
 .description {
-  width: 25%;
+  width: 30%;
 }
 
 .status {
-  width: 5%;
+  width: 12%%;
+  text-align: center;
 }
 
 .created-date {
-  width: 5%;
+  width: 13%;
+  text-align: center;
 }
 
 .action {
-  width: 25%;
+  width: 20%;
   display: flex;
-  gap: 10px;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
-th,
-td {
-  padding: 12px;
+th{
+  padding: 16px 12px;
   text-align: left;
   word-wrap: break-word;
+  font-size: 15px;
+  font-weight: 600;
+}
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eeeeee;
+  color: #333;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+td.status{
+  font-weight: 600;
+}
+td.action {
+  text-align: center;
+}
+
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.action button:first-child {
+  background-color: #3498db;
+  color: white;
+}
+.action button:first-child:hover {
+  background-color: #217dbb;
+}
+
+.action button:last-child{
+  background-color: #e74c3c;
+  color: white;
+}
+.action button:last-child:hover{
+  background-color: #c0392b;
 }
